@@ -1,0 +1,7 @@
+﻿{% extends "emailmanage/base_site.html" %}
+{% load i18n %}
+
+{% block content %}
+<p>您已注册，等待激活用户。</p>
+<p>激活码已发送到您注册邮箱，请到邮箱中激活用户。</p>
+{% endblock %}

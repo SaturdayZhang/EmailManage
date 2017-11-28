@@ -1,0 +1,9 @@
+﻿{% extends "emailmanage/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('陆海邮件管理系统') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'index' %}">{{ site_header|default:_('陆海邮件管理系统') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

@@ -1,0 +1,71 @@
+﻿body
+{
+background-color: #FFF;
+text-align:center;
+}
+
+body,input,select,button{font-family:verdana}
+
+#framecontentTop
+{
+height: 130px;
+width: 100%;
+overflow: hidden;
+vertical-align: middle;
+margin-top:30px;
+}
+
+
+#framecontentFooter
+{
+height: 100px;
+width: 100%;
+overflow: hidden;
+vertical-align: middle;
+}
+
+
+#maincontent
+{
+overflow: auto;
+background: #FDFBFC;
+height: 600px;
+width: 100%;
+}
+
+.headerLogo 
+{
+    top: 50px; 
+    left:600px; 
+    position: absolute;
+    vertical-align: middle;
+    
+}
+
+.headerIntro 
+{
+    height: 40px;
+    width: 350px;
+    display: block;
+    background-position: 0 -64px;
+    top: 130px;
+    left: 950px;
+    position: absolute;
+    font-size: 2em;
+    border-left: solid 1px #DDDDDC;
+}
+
+h1
+{
+    display: block;   
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+a
+{
+    text-decoration: none;
+}

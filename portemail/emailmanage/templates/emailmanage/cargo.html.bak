@@ -1,0 +1,8 @@
+﻿
+
+{% block content %}
+
+<h1> {{ title }} </hl>
+
+{% endblock %}
+

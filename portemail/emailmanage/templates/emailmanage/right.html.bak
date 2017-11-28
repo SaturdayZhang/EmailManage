@@ -1,0 +1,9 @@
+<html>
+<head>
+	<meta charset="utf_8">
+	<title>RightPage</title>
+</head>
+<body>
+	<h1>{{ title}}</h1>
+</body>
+</html>

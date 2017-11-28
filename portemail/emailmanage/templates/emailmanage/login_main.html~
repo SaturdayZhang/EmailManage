@@ -1,0 +1,108 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title> 陆海邮件管理系统 </title>
+	<link href="{% static 'emailmanage/frame.css' %}" rel="Stylesheet" type="text/css"/>
+	<link href="{% static 'emailmanage/menu.css' %}" rel="Stylesheet" type="text/css"/>
+
+
+	<script language="javascript" type="text/javascript">
+
+window.onload=function(){
+	var sub_str ="{{selected }}".trim();
+	if(sub_str != null && @staticmethod !=""){
+	       var allElement=document.getElementById("framecontentLeft").getElementsByTagName("a"); //得到所有元素  
+	//       遍历所有元素，如果和给定的参数匹配，则这个元素被放进Result数组中  
+	       for(var i=0; i<allElement.length; i++){        	 
+	       	  if(allElement[i] != null  && (allElement[i].href.indexOf(sub_str) >= 0)){       	  
+	            allElement[i].style.color="#FF3030";
+	            allElement[i].style.background ="#000";       
+	          }
+	          else
+	          {
+	           allElement[i].style.color="#000";
+	           allElement[i].style.background ="#d4d8bd";      	}         
+	       }      
+	}
+}
+
+ function f(data,str){ 
+        var sub_menu = document.getElementById(str); 
+        var dis_v = sub_menu.style.display; 
+        var temp = "";
+        if(dis_v == "block") 
+        {
+          sub_menu.style.display = "none";
+          temp =  "{% static 'emailmanage/image/arrow.jpg' %}";
+          data.style.listStyleImage ="url('"+temp+"')";
+        }
+        else 
+        	{
+          sub_menu.style.display = "block";
+          temp =  "{% static 'emailmanage/image/down.jpg' %}";
+          data.style.listStyleImage ="url('"+temp+"')";
+          }
+}
+
+ 
+
+	</script>
+
+</head>
+<body>
+<div id="framecontentLeft">
+<div >
+	<ul class="main1"> 
+    <li  class="menu" onclick = "f(this,'sub_menu_1')">编辑信息
+      <ul id="sub_menu_1" class="sub-menu" > 
+        <li><a  href="{% url 'tonnage' %}"  >船舶信息</a></li> 
+        <li><a  href="{% url 'cargo' %}"   >货物信息</a></li> 
+        <li><a  href="{% url 'tct' %}">租家信息</a></li> 
+        <li><a  href="{% url 'port' %}">港口信息</a></li>
+        <li><a  href="{% url 'agent' %}">代理商信息</a></li> 
+      </ul> 
+    </li>
+		<br>
+    <li class="menu" onclick="f(this,'sub_menu_2')">匹配信息
+      <ul id="sub_menu_2" class="sub-menu"> 
+        <li><a  href="{% url 'ship_cargo' %}">船舶与货物</a></li> 
+        <li><a  href="{% url 'ship_tct' %}">船舶与租家</a></li>  
+      </ul> 
+    </li>
+		<br>
+    <li  class="menu" onclick="f(this,'sub_menu3')">筛选信息
+			<ul id="sub_menu3" class="sub-menu">
+	        <li><a  href="{% url 'tonnage_selected' %}">船舶信息</a></li> 
+	        <li><a  href="{% url 'cargo_selected' %}">货物信息</a></li> 
+	        <li><a  href="{% url 'tct_selected' %}">租家信息</a></li> 
+	        <li><a  href="{% url 'port_selected' %}">港口信息</a></li>
+	        <li><a  href="{% url 'agent_selected' %}">代理商信息</a></li> 
+			</ul>
+    </li> 
+  </ul> 
+</div>
+</div>
+<div id="framecontentTop">
+	<div style="text-align: center;">
+		<div style="float: right;">
+		<p> 欢迎XXX！
+		<a href="{% url 'logout' %}"> 退出     </a> |  
+		<a href="{% url 'password_change' %}"> 修改密码 </a>
+		</p>
+		</div>
+		<h1>
+		陆海邮件管理系统
+		</h1>
+	</div>
+</div>
+<div id="maincontent">
+  
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+</body>
+</html>

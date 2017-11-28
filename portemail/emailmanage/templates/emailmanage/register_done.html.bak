@@ -1,0 +1,37 @@
+﻿{% extends "emailmanage/base.html" %}
+
+{% block content %}
+
+
+<div class="Form-wrapper">
+<h1>注册成功</h1>
+
+<!--
+<label for="usename">用户名：</label>
+<input type="text" name="usename" id="usename"  />
+<br>
+<label for="password">密&nbsp;&nbsp;&nbsp;码：</label>
+<input type="password" name="password"  id="password"/>
+<br>
+<label for="confirmpassword">确认密码：</label>
+<input type="password" name="confirmpassword"  id="confirmpassword"/>
+<br>
+-->
+<p>恭喜{{new_user.username}},您已注册成功,点击下面链接登录</p>
+<p><a href="{% url 'index' %}">登录</a></p>
+		{% if user_form.errors %}
+		{% include "emailmanage/partials/errors.html" %}
+		{% endif %}
+		{% if profile_form.errors %}
+		{% include "emailmanage/partials/errors.html" %}
+		{% endif %}
+		{% csrf_token %}
+		{% for field in user_form %}
+		{% include "emailmanage/partials/field.html" %}
+		{% endfor %}
+		{% for field in profile_form %}
+		{% include "emailmanage/partials/field.html" %}
+		{% endfor %}
+
+</div>
+{% endblock %}
